@@ -7,6 +7,14 @@
 $turnsTile = new TurnstileServices();
 $response = $turnsTile->verifyCaptcha($this->captcha, request()->ip());
 
+if ($response['success']) {
+    $this->attemptLogin();
+} else {
+    throw ValidationException::withMessages([
+        'captcha' => $response['error-codes'],
+    ]);
+}
+
 ```
 **Successful validation response**
 ```json
