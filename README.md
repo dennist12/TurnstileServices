@@ -1,19 +1,27 @@
 # Laravel Turnstile Services
 
-**Usage**
+**Example**
 
 ```php
 
+// Instantiate the TurnstileServices class, which handles CAPTCHA verification
 $turnsTile = new TurnstileServices();
+
+// Verify the CAPTCHA response using the verifyCaptcha method
 $response = $turnsTile->verifyCaptcha($this->captcha, request()->ip());
 
+// Check if the CAPTCHA verification was successful
 if ($response['success']) {
-    $this->attemptLogin();
+    // Your login logic goes here
+    // Example: authenticate the user, create a session, redirect to a dashboard, etc.
 } else {
+    // If CAPTCHA verification fails, throw a ValidationException with the error codes
     throw ValidationException::withMessages([
         'captcha' => $response['error-codes'],
     ]);
 }
+
+?>
 
 ```
 **Successful validation response**
