@@ -1,0 +1,12 @@
+{
+  "name": "dennist12/TurnstileServices",
+  "description": "A PHP library for Turnstile services",
+  "type": "library",
+  "keywords": [
+    "turnstile",
+    "services",
+    "php"
+  ],
+  "version": "1.0.0",
+  "license": "MIT"
+}
