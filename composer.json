@@ -1,22 +1,18 @@
 {
-  "name": "dennist12/TurnstileServices",
-  "description": "A PHP library for Turnstile services",
-  "type": "library",
-  "keywords": [
-    "turnstile",
-    "services",
-    "php"
-  ],
+  "name": "dennist12/turnstile-services",
+  "description": "a php library for turnstile service",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Den\\TurnstileServices\\": "src/"
+    }
+  },
   "authors": [
     {
-      "name": "Dennis Tabaldo",
-      "email": "tabaldodennis@gmail.com",
-      "role": "Developer"
+      "name": "DennisT",
+      "email": "tabaldodennis@gmail.com"
     }
   ],
-  "require": {
-    "php": "^8.0"
-  },
-  "version": "2.0.0",
-  "license": "MIT"
+  "require": {}
 }
+
