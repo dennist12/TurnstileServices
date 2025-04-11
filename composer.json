@@ -7,6 +7,16 @@
     "services",
     "php"
   ],
-  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Dennis Tabaldo",
+      "email": "tabaldodennis@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^8.0"
+  },
+  "version": "2.0.0",
   "license": "MIT"
 }
