@@ -1,5 +1,6 @@
 <?php
 
+namespace Dennist12\TurnstileServices;
 
 use Illuminate\Support\Facades\Http;
 
