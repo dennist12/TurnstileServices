@@ -1,6 +1,6 @@
 <?php
 
-namespace Dennist12\TurnstileServices;
+namespace Dennist12\TurnstileServices\Services;
 
 use Illuminate\Support\ServiceProvider;
 
