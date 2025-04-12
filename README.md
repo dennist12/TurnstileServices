@@ -1,32 +1,66 @@
 # Laravel Turnstile Services
 
-**Example**
+A simple Laravel wrapper for integrating [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/) CAPTCHA verification.
+
+## Installation
+
+Install the package via Composer:
+
+```bash
+composer require dennist12/turnstile-services
+```
+
+## Configuration
+
+Publish the configuration file:
+
+```bash
+php artisan vendor:publish --tag=dennist12/turnstile-config
+```
+
+config/turnstile.php
 
 ```php
+<?php
 
-// Instantiate the TurnstileServices class, which handles CAPTCHA verification
+
+return [
+    // Default turnstile key
+    'key' => env('TURNSTILE_KEY', 'your-default-key'),
+];
+
+
+```
+
+## Usage Example
+
+```php
+use Dennist12\Turnstile\TurnstileServices;
+use Illuminate\Validation\ValidationException;
+
+// Instantiate the TurnstileServices class
 $turnsTile = new TurnstileServices();
 
-// Verify the CAPTCHA response using the verifyCaptcha method
+// Verify the CAPTCHA response
 $response = $turnsTile->verifyCaptcha($this->captcha, request()->ip());
 
-// Check if the CAPTCHA verification was successful
+// Handle the response
 if ($response['success']) {
-    // Your login logic goes here
-    // Example: authenticate the user, create a session, redirect to a dashboard, etc.
+    // CAPTCHA verification passed
+    // Proceed with login or other logic
 } else {
-    // If CAPTCHA verification fails, throw a ValidationException with the error codes
+    // CAPTCHA verification failed
     throw ValidationException::withMessages([
         'captcha' => $response['error-codes'],
     ]);
 }
-
-?>
-
 ```
-**Successful validation response**
-```json
 
+## Example Responses
+
+### ✅ Successful Validation
+
+```json
 {
   "success": true,
   "challenge_ts": "2022-02-28T15:14:30.096Z",
@@ -35,18 +69,19 @@ if ($response['success']) {
   "action": "login",
   "cdata": "sessionid-123456789"
 }
-
 ```
-**Failed validation response**
-```json
 
+### ❌ Failed Validation
+
+```json
 {
   "success": false,
-  "error-codes": [
-    "invalid-input-response"
-  ]
+  "error-codes": ["invalid-input-response"]
 }
-
 ```
 
-For Further information visit (Turnstile Server-side validation)(https://developers.cloudflare.com/turnstile/get-started/server-side-validation/)
+## Documentation
+
+For more information on server-side validation with Turnstile, check out the official Cloudflare docs:
+
+👉 [Turnstile Server-side Validation](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/)
