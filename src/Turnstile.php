@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services;
+namespace Dennist12\TurnstileServices;
 
 use Illuminate\Support\Facades\Http;
 
-class TurnstileServices
+class Turnstile
 {
     /**
      * verify turnstile
@@ -19,7 +19,7 @@ class TurnstileServices
             ->post(
                 'https://challenges.cloudflare.com/turnstile/v0/siteverify',
                 [
-                    'secret' => 'secret_key',
+                    'secret' => config('turnstile.key'),
                     'response' => $token,
                     'remoteip' => $ip,
                 ]
