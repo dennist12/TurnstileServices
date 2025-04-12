@@ -1,6 +1,5 @@
 <?php
 
-namespace Dennist12;
 
 use Illuminate\Support\Facades\Http;
 
