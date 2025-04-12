@@ -13,8 +13,8 @@ class TurnstileServiceProvider extends ServiceProvider
     {
         // Publish the configuration file
         $this->publishes([
-            __DIR__ . '/../config/turnstile.php' => config_path('config/turnstile.php'),
-        ], 'config');
+            __DIR__ . '/../config/turnstile.php' => config_path('turnstile.php'),
+        ], 'dennist12/turnstile-config');
     }
 
     /**
