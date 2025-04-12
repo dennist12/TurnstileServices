@@ -20,7 +20,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Dennist12\\TurnstileServices\\TurnstileServiceProvider"
+        "Dennist12\\TurnstileServices\\Services\\TurnstileServiceProvider"
       ]
     }
   },
