@@ -13,10 +13,6 @@
       "email": "tabaldodennis@gmail.com"
     }
   ],
-  "require": {
-    "php": "^8.3",
-    "laravel/framework": "^11.0"
-  },
   "require-dev": {
     "pestphp/pest": "^2.0",
     "pestphp/pest-plugin-laravel": "^2.0"
