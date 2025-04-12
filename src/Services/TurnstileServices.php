@@ -1,30 +1,31 @@
 <?php
 
-namespace App\Services;
+namespace Dennist12\TurnstileServices;
 
-use Illuminate\Support\Facades\Http;
+use Illuminate\Support\ServiceProvider;
 
-class TurnstileServices
+class TurnstileServiceProvider extends ServiceProvider
 {
     /**
-     * verify turnstile
-     *
-     * @param  string  $token
-     * @param  string|null  $ip
-     * @return \Illuminate\Http\JsonResponse
+     * Bootstrap any application services.
      */
-    public function verifyCaptcha($token, $ip = null)
+    public function boot()
     {
-        return Http::asForm()
-            ->post(
-                'https://challenges.cloudflare.com/turnstile/v0/siteverify',
-                [
-                    'secret' => 'secret_key',
-                    'response' => $token,
-                    'remoteip' => $ip,
-                ]
-            )->json() ?? response()->json([
-                'status' => false,
-            ]);
+        // Publish the configuration file
+        $this->publishes([
+            __DIR__ . '/../config/turnstile.php' => config_path('turnstile.php'),
+        ], 'config');
+    }
+
+    /**
+     * Register any application services.
+     */
+    public function register()
+    {
+        // Merge the configuration file
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/turnstile.php',
+            'turnstile'
+        );
     }
 }

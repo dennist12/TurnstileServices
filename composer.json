@@ -4,15 +4,36 @@
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "Den\\TurnstileServices\\": "src/"
+      "Dennist12\\TurnstileServices\\": "src/"
     }
   },
   "authors": [
     {
-      "name": "DennisT",
+      "name": "Dennis Tabaldo",
       "email": "tabaldodennis@gmail.com"
     }
   ],
-  "require": {}
+  "require": {
+    "php": "^8.3",
+    "laravel/framework": "^11.0"
+  },
+  "require-dev": {
+    "pestphp/pest": "^2.0",
+    "pestphp/pest-plugin-laravel": "^2.0"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Dennist12\\TurnstileServices\\TurnstileServiceProvider"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "@php vendor/bin/pest"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": false
+    }
+  }
 }
-
