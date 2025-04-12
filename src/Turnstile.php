@@ -3,7 +3,7 @@
 
 use Illuminate\Support\Facades\Http;
 
-class TurnstileServiceProvider
+class Turnstile
 {
     /**
      * verify turnstile
